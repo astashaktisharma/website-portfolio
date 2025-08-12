@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Asta Sharma | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-black text-[#dcd2c2]  scroll-smooth min-h-screen relative">
+  <!-- Mobile Nav Toggle -->
+  <div class="block md:hidden fixed top-4 left-4 z-50">
+    <button id="mobileMenuBtn" class="text-[#dcd2c2] focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO SECTION (Welcome Page) -->
+  <section id="hero" class="h-screen w-full bg-black flex items-center justify-center relative z-50">
+    <h1 id="heroName" class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#6e4b3a] hero-transition text-center z-10">
+      Hi, I am Asta Shakti Suman Sharma...
+    </h1>
+
+    <!-- Decorative SVGs around name -->
+    <img src="icons/undraw_bookshelves_vhu6.svg" class="absolute left-8 sm:left-16 md:left-64  top-[6%] sm:top-[10%] w-16 sm:w-20 md:w-24 opacity-80 floating-element" alt="bookshelf" />
+    <img src="icons/undraw_programmer_raqr.svg" class="absolute right-4 sm:right-8 md:right-16 bottom-[8%] sm:bottom-[12%] w-20 sm:w-24 md:w-28 opacity-80 floating-element" alt="programmer" />
+    <img src="icons/undraw_stars_e9bi.svg" class="absolute left-[15%] sm:left-[25%] md:left-[30%] bottom-[8%] sm:bottom-[12%] md:bottom-[14%] w-16 sm:w-24 md:w-28 opacity-70 floating-element" alt="stars" />
+    <img src="icons/undraw_coffee-time_98vi.svg" class="absolute right-[15%] md:right-[28%] top-[8%] sm:top-[12%] w-16 sm:w-20 md:w-24 opacity-70 floating-element" alt="coffee" />
+    <img src="icons/undraw_polaroid_qqdz.svg" class="absolute right-10 top-[12%] sm:top-[18%] w-16 sm:w-20 md:w-24 opacity-70 hidden sm:block fade-in-up" alt="photo" />
+    <img src="icons/undraw_reading-time_gcvc.svg" class="absolute left-10 sm:left-20 md:left-24 bottom-[14%] sm:bottom-[20%] md:bottom-[22%] w-16 sm:w-20 md:w-24 opacity-80 floating-element" alt="reading" />
+
+    <!-- Scroll Down Mouse Icon -->
+    <a href="#intro" id="scrollIndicator" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-100 transition-opacity duration-500">
+      <svg class="w-14 h-24 text-[#bfa888]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <rect x="7" y="2" width="10" height="20" rx="5" ry="5" />
+        <circle cx="12" cy="6" r="1">
+          <animate 
+            attributeName="cy"
+            values="6;10;6"
+            dur="1.5s"
+            begin="0.5s"
+            repeatCount="indefinite" />
+        </circle>
+      </svg>
+      <span class="text-sm text-[#bfa888]">See what happens when a dreamer starts debugging ✨</span>
+    </a>
+  </section>
+
+    <div id="siteContent" class="transition-all duration-700">
+      <div id="stickyName" class="fixed top-0 left-10 h-full w-85 p-10 pl-16 bg-transparent text-[#6e4b3a] text-2xl flex flex-col justify-start font-bold opacity-0 transition-opacity duration-500 z-50">
+        Asta Shakti Suman Sharma
+      </div>
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="hidden md:flex fixed top-4 left-10 h-full w-85 p-10 pl-16 bg-transparent text-[#6e4b3a] z-50 flex flex-col justify-start">
+        <div class="mb-12">
+          <p class="text-base mt-4 text-white font-small">
+            Computer Science Student | Data Science
+          </p>
+        </div>
+        <nav class="mt-10">
+          <ul id="sidebar-nav" class="space-y-5 text-xl font-semibold tracking-wide">
+            <li><a href="#intro" class="text-white hover:text-[#6e4b3a] pl-3 transition nav-link" data-section="intro">HEY THERE!</a></li>
+            <li><a href="#experience" class="text-white hover:text-[#6e4b3a] pl-3 transition nav-link" data-section="experience">EXPERIENCE</a></li>
+            <li><a href="#projects" class="text-white hover:text-[#6e4b3a] pl-3 transition nav-link" data-section="projects">PROJECTS</a></li>
+            <li><a href="#contact" class="text-white hover:text-[#6e4b3a] pl-3 transition nav-link" data-section="contact">CONTACT</a></li>
+          </ul>
+        </nav>
+        <section id="skills" class="section w-full max-w-[350px] px-0 py-2 text-left opacity-0 transition-opacity duration-700">
+          <h2 class="text-3xl font-bold text-white mb-8">Skills</h2>
+          <div id="skills-container" class="flex flex-wrap justify-center gap-3">
+            <!-- Badges will be inserted here by JS -->
+          </div>
+        </section>
+        <div class="fixed bottom-6 left-6 flex flex-row items-center space-x-6 z-50">
+          <a href="https://github.com/astashaktisharma" target="_blank"><img src="icons/github.svg" class="icon" alt="GitHub" /></a>
+          <a href="https://linkedin.com/in/asta-shakti-suman-sharma" target="_blank"><img src="icons/linkedin.svg" class="icon" alt="LinkedIn" /></a>
+          <a href="https://www.instagram.com/sharma_asta" target="_blank"><img src="icons/instagram.svg" class="icon" alt="Instagram" /></a>
+          <a href="https://www.goodreads.com" target="_blank"><img src="icons/goodreads.svg" class="icon" alt="Goodreads" /></a>
+        </div>
+        <!-- Mobile Sidebar Menu -->
+        <div id="mobileMenu"
+        class="block md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 text-[#dcd2c2] z-40 transform -translate-x-full transition-transform duration-300 md:hidden p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold">Menu</h2>
+            <button id="closeMenuBtn" class="text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <nav>
+          <ul class="space-y-5 text-lg font-semibold">
+            <li><a href="#intro" class="block hover:text-[#bfa888]" onclick="closeMobileMenu()">HEY THERE!</a></li>
+            <li><a href="#experience" class="block hover:text-[#bfa888]" onclick="closeMobileMenu()">EXPERIENCE</a></li>
+            <li><a href="#projects" class="block hover:text-[#bfa888]" onclick="closeMobileMenu()">PROJECTS</a></li>
+            <li><a href="#contact" class="block hover:text-[#bfa888]" onclick="closeMobileMenu()">CONTACT</a></li>
+          </ul>
+        </nav>
+        </div>
+      </aside>
+      <!-- MAIN CONTENT -->
+      <main class="w-full sm:w-[90%] md:w-3/4 lg:w-2/3 p-4 sm:p-6 md:p-10 mt-0 ml-auto mr-0 md:mr-10">
+        <!-- Intro Section -->
+        <section id="intro" class="section ml-4 sm:ml-8 md:ml-20 lg:ml-36 mb-8">
+          <h2 class="text-3xl font-bold text-[#6e4b3a]">HEY THERE...!</h2>
+          <p class="text-white/80 text-base leading-relaxed">
+            I’m Asta Shakti Suman Sharma — a Computer Science student at The College of Idaho with a passion for data science, machine learning, and building intelligent systems. With experience in research, leadership, and backend development, I thrive at the intersection of technology, creativity, and community. Whether it’s building an AI-powered book app or optimizing stellar data in astrophysics, I’m all about solving real-world problems through clean, scalable code.
+          </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section ml-4 sm:ml-8 md:ml-20 lg:ml-36 mb-8">
+          <h2 class="text-3xl font-bold text-[#6e4b3a] mb-6">Experience</h2>
+
+          <div class="glass-card w-full mr-2 ml-6">
+            <p class="text-sm text-[#bfa888]/80 mb-1">MAY 2024 — PRESENT</p>
+            <h3 class="text-xl font-bold text-[#6e4b3a]">Astrophysics Research Assistant Intern · The College of Idaho</h3>
+            <p class="mt-2">
+              Developed Python scripts to automate data extraction and analysis for astronomical datasets.<br>
+              Optimized wavelength calibration and computed stellar radial velocities using NumPy and Pandas.<br>
+              Built software tools for KOSMOS Image Data Reduction and presented findings at conferences.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="badge">Python</span>
+              <span class="badge">NumPy</span>
+              <span class="badge">Pandas</span>
+              <span class="badge">Data Analysis</span>
+            </div>
+          </div>
+
+          <div class="glass-card w-full mr-2 ml-6">
+            <p class="text-sm text-[#bfa888]/80 mb-1">AUG 2024 — PRESENT</p>
+            <h3 class="text-xl font-bold text-[#6e4b3a]">President · Asian Students Association</h3>
+            <p class="mt-2">
+              Led initiatives fostering cultural engagement and student inclusivity.<br>
+              Managed campus-wide events, budgets, and partnership development.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="badge">Leadership</span>
+              <span class="badge">Community Engagement</span>
+            </div>
+          </div>
+
+          <div class="glass-card w-full mr-2 ml-6">
+            <p class="text-sm text-[#bfa888]/80 mb-1">AUG 2023 — PRESENT</p>
+            <h3 class="text-xl font-bold text-[#6e4b3a]">Office Coordinator · Campus Safety</h3>
+            <p class="mt-2">
+              Oversaw office operations and coordinated safety protocols.<br>
+              Managed community policing and team communication.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="badge">Operations</span>
+              <span class="badge">Team Coordination</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section ml-4 sm:ml-8 md:ml-20 lg:ml-36 mb-8">
+          <h2 class="text-3xl font-bold text-[#6e4b3a] mb-6">Projects</h2>
+
+          <div class="glass-card w-full mr-2 ml-6">
+            <p class="text-sm text-[#bfa888]/80 mb-1 italic">In Progress</p>
+            <h3 class="text-xl font-bold text-[#6e4b3a]">AI Librarian</h3>
+            <p class="mt-2">
+              Personal reading tracker and AI book recommendation system.<br>
+              Backend with FastAPI + PostgreSQL; Interactive React UI for personalization.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="badge">Python</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">PostgreSQL</span>
+              <span class="badge">React</span>
+            </div>
+          </div>
+
+          <div class="glass-card w-full mr-2 ml-6">
+            <h3 class="text-xl font-bold text-[#6e4b3a]">To-Do List Tracker</h3>
+            <p class="mt-2">
+              Lightweight task manager built with Fast HTML and SQLite for organizing daily goals.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="badge">Python</span>
+              <span class="badge">Fast HTML</span>
+              <span class="badge">SQLite</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Data Analysis Section
+        <section id="clearwater" class="section ml-4 sm:ml-8 md:ml-20 lg:ml-36 mb-8">
+          <h2 class="text-3xl font-bold text-[#6e4b3a] mb-6">Clear Water Analytics – Data Analyst</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-2xl shadow-md">
+              <h3 class="text-xl font-semibold text-[#dcd2c2] mb-2">Resume</h3>
+              <img src="icons/svgviewer-output.svg" alt="Cover Letter" />
+              <a href="assets/Resume Suman Sharma.pdf" target="_blank" class="inline-block px-4 py-2 bg-[#6e4b3a] hover:bg-[#6e4b3a] text-white font-semibold rounded transition">View Resume</a>
+            </div>
+            <div class="glass-card p-6 rounded-2xl shadow-md">
+              <h3 class="text-xl font-semibold text-[#dcd2c2] mb-2">Cover Letter</h3>
+              <img src="icons/svgviewer-coverletter.svg" alt="Cover Letter" />
+              <a href="assets/Cover_Letter_ClearWater.pdf" target="_blank" class="inline-block px-4 py-2 bg-[#6e4b3a] hover:bg-[#6e4b3a] text-white font-semibold rounded transition">View Cover Letter</a>
+            </div>
+            <div class="glass-card p-6 rounded-2xl shadow-md">
+              <h3 class="text-xl font-semibold text-[#dcd2c2] mb-2">Data Analysis</h3>
+              <img src="icons/svgviewer-dataanalysis.svg" alt="Data Analysis" />
+              <a href="assets/HR Attrition Prediction Analysis.pdf" target="_blank" class="inline-block px-4 py-2 bg-[#6e4b3a] hover:bg-[#6e4b3a] text-white font-semibold rounded transition">View Analysis</a>
+            </div>
+          </div>
+        </section> -->
+      <section id="contact" class="section flex justify-center items-center">
+        <!-- Styled Contact Form -->
+        <div class="bg-[#0c0c0c] border border-[#6e4b3a]/50 shadow-lg rounded-2xl w-full max-w-xl sm:w-[80%] md:w-[60%] lg:w-[50%] p-8 backdrop-blur-md">
+          <h3 class="text-2xl font-semibold text-[#dcd2c2] mb-6">Let's Connect!</h3>
+          <form onsubmit="handleFormSubmit(event)" action="mailto:astasharma.cofi26@gmail.com" method="POST" enctype="text/plain" class="space-y-5">
+            <p id="thankYouMsg" class="mt-4 text-sm text-[#bfa888] text-center hidden">
+              Your message has been sent! Asta will get back to you shortly.
+            </p>
+            <div class="text-left">
+              <label for="name" class="block mb-1 text-sm font-medium">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required
+                    class="w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-[#dcd2c2] border border-[#bfa888]/30 focus:outline-none focus:ring-2 focus:ring-[#bfa888]"/>
+            </div>
+
+            <div class="text-left">
+              <label for="email" class="block mb-1 text-sm font-medium">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your email" required
+                    class="w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-[#dcd2c2] border border-[#bfa888]/30 focus:outline-none focus:ring-2 focus:ring-[#bfa888]"/>
+            </div>
+
+            <div class="text-left">
+              <label for="message" class="block mb-1 text-sm font-medium">Message</label>
+              <textarea id="message" name="message" placeholder="Your message" rows="4" required
+                        class="w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-[#dcd2c2] border border-[#bfa888]/30 focus:outline-none focus:ring-2 focus:ring-[#bfa888]"></textarea>
+            </div>
+
+            <div>
+              <button type="submit"
+                      class="w-full bg-[#dcd2c2] text-[#1a1a1a] font-bold py-2 rounded-md hover:bg-[#bfa888] transition duration-300 ease-in-out">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="w-full bg-[#6e4b3a] text-white/80 py-6">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+          <p class="text-xs sm:text-sm">© 2025 — Asta Shakti Suman Sharma — All Rights Reserved. Based in Caldwell, Idaho</p>
+        </div>
+      </footer>
+  </div>
+
+  <div id="stickyName" class="fixed top-6 left-6 text-[#dcd2c2] font-bold text-xl opacity-0 transition-opacity duration-500 z-50">
+    Asta Shakti Suman Sharma
+  </div>
+</body>
+</html>
