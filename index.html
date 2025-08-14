@@ -6,10 +6,11 @@
   <title>Asta Sharma | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="script.js" defer></script>
 </head>
 <body class="bg-black text-[#dcd2c2]  scroll-smooth min-h-screen relative">
-  <!-- Mobile Nav Toggle -->
+  <!-- Mobile Navigation -->
   <div class="block md:hidden fixed top-4 left-4 z-50">
     <button id="mobileMenuBtn" class="text-[#dcd2c2] focus:outline-none">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -18,13 +19,17 @@
     </button>
   </div>
 
-  <!-- HERO SECTION (Welcome Page) -->
-  <section id="hero" class="h-screen w-full bg-black flex items-center justify-center relative z-50">
+  <!-- Hero Section -->
+  <section id="hero" class="h-screen w-full bg-black flex flex-col items-center justify-center relative z-50 overflow-hidden">
+    <!-- Gold Shine Effect -->
+    <div class="absolute inset-0 bg-gradient-to-br from-transparent via-[#bfa888]/5 to-transparent animate-shine"></div>
+    <div class="absolute inset-0 bg-gradient-to-tl from-transparent via-[#6e4b3a]/3 to-transparent animate-shine-reverse"></div>
+
     <h1 id="heroName" class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#6e4b3a] hero-transition text-center z-10">
       Hi, I am Asta Shakti Suman Sharma...
     </h1>
 
-    <!-- Decorative SVGs around name -->
+    <!-- Decorative Elements -->
     <img src="icons/undraw_bookshelves_vhu6.svg" class="absolute left-8 sm:left-16 md:left-64  top-[6%] sm:top-[10%] w-16 sm:w-20 md:w-24 opacity-80 floating-element" alt="bookshelf" />
     <img src="icons/undraw_programmer_raqr.svg" class="absolute right-4 sm:right-8 md:right-16 bottom-[8%] sm:bottom-[12%] w-20 sm:w-24 md:w-28 opacity-80 floating-element" alt="programmer" />
     <img src="icons/undraw_stars_e9bi.svg" class="absolute left-[15%] sm:left-[25%] md:left-[30%] bottom-[8%] sm:bottom-[12%] md:bottom-[14%] w-16 sm:w-24 md:w-28 opacity-70 floating-element" alt="stars" />
@@ -32,7 +37,7 @@
     <img src="icons/undraw_polaroid_qqdz.svg" class="absolute right-10 top-[12%] sm:top-[18%] w-16 sm:w-20 md:w-24 opacity-70 hidden sm:block fade-in-up" alt="photo" />
     <img src="icons/undraw_reading-time_gcvc.svg" class="absolute left-10 sm:left-20 md:left-24 bottom-[14%] sm:bottom-[20%] md:bottom-[22%] w-16 sm:w-20 md:w-24 opacity-80 floating-element" alt="reading" />
 
-    <!-- Scroll Down Mouse Icon -->
+    <!-- Scroll Indicator -->
     <a href="#intro" id="scrollIndicator" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-100 transition-opacity duration-500">
       <svg class="w-14 h-24 text-[#bfa888]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
         <rect x="7" y="2" width="10" height="20" rx="5" ry="5" />
@@ -50,95 +55,190 @@
   </section>
 
     <div id="siteContent" class="transition-all duration-700">
-      <div id="stickyName" class="fixed top-0 left-10 h-full w-85 p-10 pl-16 bg-transparent text-[#6e4b3a] text-2xl flex flex-col justify-start font-bold opacity-0 transition-opacity duration-500 z-50">
-        Asta Shakti Suman Sharma
+                    <!-- Sticky Name and Title -->
+       <div id="stickyName" class="fixed top-6 left-6 z-50 opacity-0 transition-opacity duration-500">
+                 <h2 class="text-2xl font-bold text-[#6e4b3a]">Asta Shakti Suman Sharma</h2>
+         <p class="text-base mt-2 text-white font-normal">
+          Computer Science Student | Data Science
+        </p>
       </div>
-      <!-- SIDEBAR -->
-      <aside id="sidebar" class="hidden md:flex fixed top-4 left-10 h-full w-85 p-10 pl-16 bg-transparent text-[#6e4b3a] z-50 flex flex-col justify-start">
-        <div class="mb-12">
-          <p class="text-base mt-4 text-white font-small">
-            Computer Science Student | Data Science
-          </p>
-        </div>
-        <nav class="mt-10">
-          <ul id="sidebar-nav" class="space-y-5 text-xl font-semibold tracking-wide">
-            <li><a href="#intro" class="text-white hover:text-[#6e4b3a] pl-3 transition nav-link" data-section="intro">HEY THERE!</a></li>
-            <li><a href="#experience" class="text-white hover:text-[#6e4b3a] pl-3 transition nav-link" data-section="experience">EXPERIENCE</a></li>
 
-            <li><a href="#projects" class="text-white hover:text-[#6e4b3a] pl-3 transition nav-link" data-section="projects">PROJECTS</a></li>
-            <li><a href="#contact" class="text-white hover:text-[#6e4b3a] pl-3 transition nav-link" data-section="contact">CONTACT</a></li>
-          </ul>
-        </nav>
-        <section id="skills" class="section w-full max-w-[350px] px-0 py-2 text-left opacity-0 transition-opacity duration-700">
-          <h2 class="text-3xl font-bold text-white mb-8">Skills</h2>
-          <div id="skills-container" class="flex flex-wrap justify-center gap-3">
-            <!-- Badges will be inserted here by JS -->
-          </div>
-        </section>
-        <div class="fixed bottom-6 left-6 flex flex-row items-center space-x-6 z-50">
-          <a href="https://github.com/astashaktisharma" target="_blank"><img src="icons/github.svg" class="icon" alt="GitHub" /></a>
-          <a href="https://linkedin.com/in/asta-shakti-suman-sharma" target="_blank"><img src="icons/linkedin.svg" class="icon" alt="LinkedIn" /></a>
-          <a href="https://www.instagram.com/sharma_asta" target="_blank"><img src="icons/instagram.svg" class="icon" alt="Instagram" /></a>
-          <a href="https://www.goodreads.com" target="_blank"><img src="icons/goodreads.svg" class="icon" alt="Goodreads" /></a>
-        </div>
-        <!-- Mobile Sidebar Menu -->
-        <div id="mobileMenu"
-        class="block md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 text-[#dcd2c2] z-40 transform -translate-x-full transition-transform duration-300 md:hidden p-6">
-          <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold">Menu</h2>
-            <button id="closeMenuBtn" class="text-white">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
-        <nav>
-          <ul class="space-y-5 text-lg font-semibold">
-            <li><a href="#intro" class="block hover:text-[#bfa888]" onclick="closeMobileMenu()">HEY THERE!</a></li>
-            <li><a href="#experience" class="block hover:text-[#bfa888]" onclick="closeMobileMenu()">EXPERIENCE</a></li>
+             <!-- Navigation Bar -->
+       <nav id="topNav" class="fixed top-6 right-6 z-50 opacity-0 transition-opacity duration-500">
+                 <ul class="flex space-x-6 text-lg font-semibold">
+          <li><a href="#intro" class="text-white hover:text-[#6e4b3a] transition-colors duration-300">HEY THERE!</a></li>
+          <li><a href="#skills" class="text-white hover:text-[#6e4b3a] transition-colors duration-300">SKILLS</a></li>
+          <li><a href="#experience" class="text-white hover:text-[#6e4b3a] transition-colors duration-300">EXPERIENCE</a></li>
+          <li><a href="#projects" class="text-white hover:text-[#6e4b3a] transition-colors duration-300">PROJECTS</a></li>
+          <li><a href="#resume" class="text-white hover:text-[#6e4b3a] transition-colors duration-300">RESUME</a></li>
+          <li><a href="#contact" class="text-white hover:text-[#6e4b3a] transition-colors duration-300">CONTACT</a></li>
+        </ul>
+      </nav>
 
-            <li><a href="#projects" class="block hover:text-[#bfa888]" onclick="closeMobileMenu()">PROJECTS</a></li>
-            <li><a href="#contact" class="block hover:text-[#bfa888]" onclick="closeMobileMenu()">CONTACT</a></li>
-          </ul>
-        </nav>
-        </div>
-      </aside>
-      <!-- MAIN CONTENT -->
-      <main class="w-full sm:w-[90%] md:w-3/4 lg:w-2/3 p-4 sm:p-6 md:p-10 mt-0 ml-auto mr-0 md:mr-10">
-        <!-- Intro Section -->
-        <section id="intro" class="section ml-4 sm:ml-8 md:ml-20 lg:ml-36 mb-8">
-          <h2 class="text-3xl font-bold text-[#6e4b3a]">HEY THERE...!</h2>
+             <!-- Social Media Icons -->
+      <div class="fixed bottom-6 left-6 flex flex-row items-center space-x-6 z-50">
+        <a href="https://github.com/astashaktisharma" target="_blank"><img src="icons/github.svg" class="icon" alt="GitHub" /></a>
+        <a href="https://linkedin.com/in/asta-shakti-suman-sharma" target="_blank"><img src="icons/linkedin.svg" class="icon" alt="LinkedIn" /></a>
+        <a href="https://www.instagram.com/sharma_asta" target="_blank"><img src="icons/instagram.svg" class="icon" alt="Instagram" /></a>
+        <a href="https://www.goodreads.com" target="_blank"><img src="icons/goodreads.svg" class="icon" alt="Goodreads" /></a>
+      </div>
+                                                       <!-- Main Content -->
+        <main class="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-10 mt-48">
+                          <!-- Intro Section -->
+          <section id="intro" class="section mb-36 pt-20">
+                                                                 <h2 class="text-3xl font-bold text-[#6e4b3a] mb-8">HEY THERE...!</h2>
           <p class="text-white/80 text-base leading-relaxed">
             I’m Asta Shakti Suman Sharma — a Computer Science student at The College of Idaho with a passion for data science, machine learning, and building intelligent systems. With experience in research, leadership, and backend development, I thrive at the intersection of technology, creativity, and community. Whether it’s building an AI-powered book app or optimizing stellar data in astrophysics, I’m all about solving real-world problems through clean, scalable code.
           </p>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="section ml-4 sm:ml-8 md:ml-20 lg:ml-36 mb-8">
-          <h2 class="text-3xl font-bold text-[#6e4b3a] mb-6">Experience</h2>
+                                                     <!-- Skills Section -->
+           <section id="skills" class="section mb-36 pt-20">
+             <h2 class="text-3xl font-bold text-[#6e4b3a] mb-8">Technical Skills</h2>
+             
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                               <!-- Programming Languages -->
+                <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div class="space-y-3">
+                    <h3 class="text-xl font-bold text-[#6e4b3a] flex items-center gap-3">
+                      <svg class="w-6 h-6 text-[#6e4b3a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                      </svg>
+                      Programming Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="badge">Python</span>
+                      <span class="badge">JavaScript</span>
+                      <span class="badge">SQL</span>
+                      <span class="badge">R</span>
+                      <span class="badge">HTML</span>
+                      <span class="badge">CSS</span>                      
+                    </div>
+                  </div>
+                </div>
 
-          <div class="glass-card w-full mr-2 ml-6">
-            <p class="text-sm text-[#bfa888]/80 mb-1">MAY 2024 — PRESENT</p>
-            <h3 class="text-xl font-bold text-[#6e4b3a]">Astrophysics Research Assistant Intern · The College of Idaho</h3>
+                               <!-- Frameworks & Libraries -->
+                <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div class="space-y-3">
+                    <h3 class="text-xl font-bold text-[#6e4b3a] flex items-center gap-3">
+                      <svg class="w-6 h-6 text-[#6e4b3a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                      </svg>
+                      Frameworks & Libraries
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="badge">React</span>
+                      <span class="badge">FastAPI</span>
+                      <span class="badge">NumPy</span>
+                      <span class="badge">Pandas</span>
+                      <span class="badge">Matplotlib</span>
+                      <span class="badge">Plotly</span>
+                      <span class="badge">Tailwind CSS</span>
+                    </div>
+                  </div>
+                </div>
+
+                               <!-- Databases & Tools -->
+                <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div class="space-y-3">
+                    <h3 class="text-xl font-bold text-[#6e4b3a] flex items-center gap-3">
+                      <svg class="w-6 h-6 text-[#6e4b3a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                      </svg>
+                      Databases & Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="badge">SQLite</span>
+                      <span class="badge">Git</span>
+                      <span class="badge">GitHub</span>
+                      <span class="badge">Jupyter Notebooks</span>
+                    </div>
+                  </div>
+                </div>
+
+                               <!-- Data Science & ML -->
+                <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div class="space-y-3">
+                    <h3 class="text-xl font-bold text-[#6e4b3a] flex items-center gap-3">
+                      <svg class="w-6 h-6 text-[#6e4b3a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                      </svg>
+                      Data Science & ML
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="badge">Data Analysis</span>
+                      <span class="badge">Machine Learning</span>
+                      <span class="badge">Statistical Analysis</span>
+                      <span class="badge">Data Visualization</span>
+                    </div>
+                  </div>
+                </div>
+
+                               <!-- Development & Other -->
+                <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div class="space-y-3">
+                    <h3 class="text-xl font-bold text-[#6e4b3a] flex items-center gap-3">
+                      <svg class="w-6 h-6 text-[#6e4b3a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      </svg>
+                      Development & Other
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="badge">RESTful APIs</span>
+                      <span class="badge">Web Development</span>
+                    </div>
+                  </div>
+                </div>
+             </div>
+           </section>
+
+                          <!-- Experience Section -->
+          <section id="experience" class="section mb-36 pt-20">
+                                                                 <h2 class="text-3xl font-bold text-[#6e4b3a] mb-8">Experience</h2>
+
+                                                                                                                                       <div class="glass-card w-full mb-16 p-6">
+             <p class="text-sm text-[#bfa888]/80 mb-1">JUNE 2025 — AUGUST 2025</p>
+             <h3 class="text-xl font-bold text-[#6e4b3a]">Product Management Data Intern · Western Power Sports (WPS)</h3>
+                         <p class="mt-2">
+               • Analyzed 300,000+ product records using R and Python to identify data gaps and guide targeted audits.<br>
+               • Evaluated 800+ hierarchical classifications, reducing miscellaneous categories by 70-80% and improving search UX.<br>
+               • Created standardized SOP for attribute association and developed visual product hierarchy tree, reducing misclassifications by 68%.<br>
+               • Collaborated across segments to validate findings and support strategic planning initiatives.
+             </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="badge">Python</span>
+              <span class="badge">R</span>
+              <span class="badge">Data Analysis</span>
+              <span class="badge">Product Management</span>
+              <span class="badge">Process Improvement</span>
+            </div>
+          </div>
+
+                                                                    <div class="glass-card w-full mb-16 p-6">
+             <p class="text-sm text-[#bfa888]/80 mb-1">MAY 2024 — MAY 2025</p>
+             <h3 class="text-xl font-bold text-[#6e4b3a]">Astrophysics Research Assistant Intern · Murdock @ The College of Idaho</h3>
             <p class="mt-2">
-              Developed Python scripts to automate data extraction and analysis for astronomical datasets.<br>
-              Optimized wavelength calibration and computed stellar radial velocities using NumPy and Pandas.<br>
-              Built software tools for KOSMOS Image Data Reduction and presented findings at conferences.
+              • Developed Python-based automation scripts that reduced manual data processing time by 40%.<br>
+              • Enhanced wavelength calibration algorithms, improving accuracy of stellar radial velocity computations by 70%.<br>
+              • Worked with large datasets to develop and test software tools for KOSMOS Image Reduction pipeline.<br>
+              • Presented findings at academic conferences and collaborated with cross-functional research teams.
             </p>
             <div class="flex flex-wrap gap-2 mt-3">
               <span class="badge">Python</span>
               <span class="badge">NumPy</span>
               <span class="badge">Pandas</span>
               <span class="badge">Data Analysis</span>
+              <span class="badge">Research</span>
             </div>
           </div>
 
-          <div class="glass-card w-full mr-2 ml-6">
-            <p class="text-sm text-[#bfa888]/80 mb-1">AUG 2024 — PRESENT</p>
-            <h3 class="text-xl font-bold text-[#6e4b3a]">President · Asian Students Association</h3>
+                                                                   <div class="glass-card w-full mb-16 p-6">
+             <p class="text-sm text-[#bfa888]/80 mb-1">AUG 2024 — PRESENT</p>
+             <h3 class="text-xl font-bold text-[#6e4b3a]">President · Asian Students Association</h3>
             <p class="mt-2">
-              Led initiatives fostering cultural engagement and student inclusivity.<br>
-              Managed campus-wide events, budgets, and partnership development.
+              • Led initiatives fostering cultural engagement and student inclusivity.<br>
+              • Managed campus-wide events, budgets, and partnership development.
             </p>
             <div class="flex flex-wrap gap-2 mt-3">
               <span class="badge">Leadership</span>
@@ -146,80 +246,131 @@
             </div>
           </div>
 
-          <div class="glass-card w-full mr-2 ml-6">
-            <p class="text-sm text-[#bfa888]/80 mb-1">AUG 2023 — PRESENT</p>
-            <h3 class="text-xl font-bold text-[#6e4b3a]">Office Coordinator · Campus Safety</h3>
+                                                                                                                                       <div class="glass-card w-full mb-16 p-6">
+             <p class="text-sm text-[#bfa888]/80 mb-1">AUGUST 2023 — PRESENT</p>
+             <h3 class="text-xl font-bold text-[#6e4b3a]">Campus Safety Office Coordinator · The College of Idaho</h3>
             <p class="mt-2">
-              Oversaw office operations and coordinated safety protocols.<br>
-              Managed community policing and team communication.
+              • Adapted to fast-paced, high-pressure situations while managing office operations and supporting emergency response.<br>
+              • Ensured accurate reporting and coordination with strong attention to detail and commitment to community safety.
             </p>
             <div class="flex flex-wrap gap-2 mt-3">
               <span class="badge">Operations</span>
-              <span class="badge">Team Coordination</span>
+              <span class="badge">Emergency Response</span>
+              <span class="badge">Attention to Detail</span>
             </div>
           </div>
         </section>
 
+                                                     <!-- Projects Section -->
+           <section id="projects" class="section mb-36 pt-20">
+             <h2 class="text-3xl font-bold text-[#6e4b3a] mb-8">Projects</h2>
+             
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+               <!-- AI Librarian Project -->
+               <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                   <div class="aspect-square bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] rounded-xl mb-4 overflow-hidden">
+                    <img src="project images/lib_ai.png" alt="AI Librarian Project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                 
+                 <div class="space-y-3">
+                   <div class="flex items-center justify-between">
+                     <h3 class="text-xl font-bold text-[#6e4b3a]">AI Librarian</h3>
+                     <span class="text-xs px-2 py-1 bg-[#6e4b3a]/20 text-[#6e4b3a] rounded-full italic">In Progress</span>
+                   </div>
+                   
+                   <p class="text-white/80 text-sm leading-relaxed">
+                     Personal reading tracker and AI book recommendation system with intelligent backend and personalized UI.
+                   </p>
+                   
+                   <div class="flex flex-wrap gap-2">
+                     <span class="badge">Python</span>
+                     <span class="badge">FastAPI</span>
+                     <span class="badge">PostgreSQL</span>
+                     <span class="badge">React</span>
+                   </div>
+                 </div>
+               </div>
 
+               <!-- To-Do List Tracker Project -->
+               <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                   <div class="aspect-square bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] rounded-xl mb-4 overflow-hidden">
+                    <img src="project images/tracker.png" alt="To-Do List Tracker Project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  </div>
+                 
+                 <div class="space-y-3">
+                   <h3 class="text-xl font-bold text-[#6e4b3a]">To-Do List Tracker</h3>
+                   
+                   <p class="text-white/80 text-sm leading-relaxed">
+                     Lightweight task manager built with Fast HTML and SQLite for organizing daily goals efficiently.
+                   </p>
+                   
+                   <div class="flex flex-wrap gap-2">
+                     <span class="badge">Python</span>
+                     <span class="badge">Fast HTML</span>
+                     <span class="badge">SQLite</span>
+                   </div>
+                 </div>
+               </div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section ml-4 sm:ml-8 md:ml-20 lg:ml-36 mb-8">
-          <h2 class="text-3xl font-bold text-[#6e4b3a] mb-6">Projects</h2>
+              
+             </div>
+           </section>
+
+                          <!-- Resume Section -->
+          <section id="resume" class="section mb-36 pt-20">
+                                                                 <h2 class="text-3xl font-bold text-[#6e4b3a] mb-8">Resume</h2>
           
-          <div class="glass-card w-full mr-2 ml-6">
-            <p class="text-sm text-[#bfa888]/80 mb-1 italic">In Progress</p>
-            <h3 class="text-xl font-bold text-[#6e4b3a]">AI Librarian</h3>
-            <p class="mt-2">
-              Personal reading tracker and AI book recommendation system.<br>
-              Backend with FastAPI + PostgreSQL; Interactive React UI for personalization.
+                                                                   <div class="glass-card w-full mb-16 p-6">
+             <h3 class="text-xl font-bold text-[#6e4b3a] mb-4">Download My Resume</h3>
+            <p class="text-white/80 mb-4">
+              Get a detailed overview of my skills, experience, and qualifications in a professional format.
             </p>
-            <div class="flex flex-wrap gap-2 mt-3">
-              <span class="badge">Python</span>
-              <span class="badge">FastAPI</span>
-              <span class="badge">PostgreSQL</span>
-              <span class="badge">React</span>
+            <div class="flex flex-wrap gap-3">
+                             <a href="resume/Resume_Sharma.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-[#6e4b3a] hover:bg-[#8b5a3a] text-white font-semibold rounded-lg transition-colors duration-300">
+                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                 </svg>
+                 Download PDF
+               </a>
+                                                           <a href="resume/Resume_Sharma.pdf" target="_blank" class="inline-flex items-center px-6 py-3 border border-[#6e4b3a] text-[#6e4b3a] hover:bg-[#6e4b3a] hover:text-white font-semibold rounded-lg transition-colors duration-300">
+                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                 </svg>
+                 View Online
+               </a>
             </div>
           </div>
 
-          <div class="glass-card w-full mr-2 ml-6">
-            <h3 class="text-xl font-bold text-[#6e4b3a]">To-Do List Tracker</h3>
-            <p class="mt-2">
-              Lightweight task manager built with Fast HTML and SQLite for organizing daily goals.
-            </p>
-            <div class="flex flex-wrap gap-2 mt-3">
-              <span class="badge">Python</span>
-              <span class="badge">Fast HTML</span>
-              <span class="badge">SQLite</span>
+                                                                   <div class="glass-card w-full mt-6 p-6">
+             <h3 class="text-xl font-bold text-[#6e4b3a] mb-4">Key Highlights</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <h4 class="font-semibold text-white">Education</h4>
+                <p class="text-white/80 text-sm">Computer Science, The College of Idaho</p>
+                <p class="text-[#bfa888]/80 text-xs">Expected Graduation: Jan 2026</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-semibold text-white">Focus Areas</h4>
+                <p class="text-white/80 text-sm">Data Science, Machine Learning, Backend Development</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-semibold text-white">Languages</h4>
+                <p class="text-white/80 text-sm">Python, JavaScript, SQL, R, HTML/CSS, JavaScript</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-semibold text-white">Frameworks</h4>
+                <p class="text-white/80 text-sm">React, FastAPI, NumPy, Pandas</p>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- Data Analysis Section
-        <section id="clearwater" class="section ml-4 sm:ml-8 md:ml-20 lg:ml-36 mb-8">
-          <h2 class="text-3xl font-bold text-[#6e4b3a] mb-6">Clear Water Analytics – Data Analyst</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-card p-6 rounded-2xl shadow-md">
-              <h3 class="text-xl font-semibold text-[#dcd2c2] mb-2">Resume</h3>
-              <img src="icons/svgviewer-output.svg" alt="Cover Letter" />
-              <a href="assets/Resume Suman Sharma.pdf" target="_blank" class="inline-block px-4 py-2 bg-[#6e4b3a] hover:bg-[#6e4b3a] text-white font-semibold rounded transition">View Resume</a>
-            </div>
-            <div class="glass-card p-6 rounded-2xl shadow-md">
-              <h3 class="text-xl font-semibold text-[#dcd2c2] mb-2">Cover Letter</h3>
-              <img src="icons/svgviewer-coverletter.svg" alt="Cover Letter" />
-              <a href="assets/Cover_Letter_ClearWater.pdf" target="_blank" class="inline-block px-4 py-2 bg-[#6e4b3a] hover:bg-[#6e4b3a] text-white font-semibold rounded transition">View Cover Letter</a>
-            </div>
-            <div class="glass-card p-6 rounded-2xl shadow-md">
-              <h3 class="text-xl font-semibold text-[#dcd2c2] mb-2">Data Analysis</h3>
-              <img src="icons/svgviewer-dataanalysis.svg" alt="Data Analysis" />
-              <a href="assets/HR Attrition Prediction Analysis.pdf" target="_blank" class="inline-block px-4 py-2 bg-[#6e4b3a] hover:bg-[#6e4b3a] text-white font-semibold rounded transition">View Analysis</a>
-            </div>
-          </div>
-        </section> -->
-      <section id="contact" class="section flex justify-center items-center">
-        <!-- Styled Contact Form -->
+             <section id="contact" class="section flex justify-center items-center pt-20 pb-24">
+        <!-- Contact Form -->
         <div class="bg-[#0c0c0c] border border-[#6e4b3a]/50 shadow-lg rounded-2xl w-full max-w-xl sm:w-[80%] md:w-[60%] lg:w-[50%] p-8 backdrop-blur-md">
           <h3 class="text-2xl font-semibold text-[#dcd2c2] mb-6">Let's Connect!</h3>
-          <form onsubmit="handleFormSubmit(event)" action="mailto:astasharma.cofi26@gmail.com" method="POST" enctype="text/plain" class="space-y-5">
+          <form onsubmit="handleFormSubmit(event)" class="space-y-5">
             <p id="thankYouMsg" class="mt-4 text-sm text-[#bfa888] text-center hidden">
               Your message has been sent! Asta will get back to you shortly.
             </p>
@@ -252,16 +403,13 @@
       </section>
       </main>
 
-      <!-- FOOTER -->
+             <!-- Footer -->
       <footer class="w-full bg-[#6e4b3a] text-white/80 py-6">
         <div class="max-w-6xl mx-auto px-4 text-center">
-          <p class="text-xs sm:text-sm">© 2025 — Asta Shakti Suman Sharma — All Rights Reserved. Based in Caldwell, Idaho</p>
+          <p class="text-xs sm:text-sm">© 2025 — Asta Shakti Suman Sharma — All Rights Reserved. Based in Boise, Idaho</p>
         </div>
       </footer>
   </div>
 
-  <div id="stickyName" class="fixed top-6 left-6 text-[#dcd2c2] font-bold text-xl opacity-0 transition-opacity duration-500 z-50">
-    Asta Shakti Suman Sharma
-  </div>
 </body>
 </html>
