@@ -12,18 +12,26 @@ document.addEventListener("DOMContentLoaded", () => {
       const scrollY = window.scrollY;
       const heroHeight = hero.offsetHeight;
 
-      if (scrollY > 200) {
+      if (scrollY > 100) {
         stickyName.classList.replace("opacity-0", "opacity-100");
-        topNav.classList.replace("opacity-0", "opacity-100");
+        topNav.classList.replace("opacity-90", "opacity-100");
         heroName.classList.add("opacity-0");
         siteContent.classList.add("bg-dot-grid");
       } else {
         stickyName.classList.replace("opacity-100", "opacity-0");
-        topNav.classList.replace("opacity-100", "opacity-0");
+        topNav.classList.replace("opacity-100", "opacity-90");
         heroName.classList.remove("opacity-0");
         siteContent.classList.remove("bg-dot-grid");
       }
     });
+    
+    // Make navigation visible after a short delay on page load
+    setTimeout(() => {
+      if (window.scrollY > 100) {
+        topNav.classList.replace("opacity-90", "opacity-100");
+        stickyName.classList.replace("opacity-0", "opacity-100");
+      }
+    }, 1000);
   }
 
   // Typing Effect
