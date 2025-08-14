@@ -17,7 +17,7 @@ html {
 }
 
 .bg-dot-grid {
-  background-color: black; /* stays same as hero */
+  background-color: black;
   background-image: radial-gradient(#2c2c2c 1px, transparent 0);
   background-size: 20px 20px;
   background-repeat: repeat;
@@ -38,9 +38,7 @@ html {
   filter: drop-shadow(0 0 5px var(--primary-color));
 }
 
-.nav-link:hover {
-  color: var(--primary-color);
-}
+
 
 .section {
   padding-top: 4rem;
@@ -84,10 +82,10 @@ html {
 .badge {
   background-color: #2c2c2c;
   color: #dcd2c2;
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.875rem;
   font-weight: 500;
   padding: 0.4rem 1rem;
-  border-radius: 9999px; /* fully rounded */
+  border-radius: 9999px;
   transition: background-color 0.3s ease;
 }
 
@@ -100,23 +98,9 @@ html {
   background-color: #6e4b3a;
 }
 
-.animate-bounce {
-  animation: bounce 1.5s infinite;
-}
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
 
-.sticky-sidebar {
-  position: relative;
-}
 
-.sticky-content {
-  position: sticky;
-  top: 0;
-}
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -127,8 +111,42 @@ html {
   animation: float 4s ease-in-out infinite;
 }
 
-#skills-container span {
-  margin-bottom: 0.5rem;
-  white-space: nowrap;
+
+
+/* Shine Animations */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%);
+    opacity: 0;
+  }
 }
 
+@keyframes shine-reverse {
+  0% {
+    transform: translateX(100%) translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-100%) translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-shine {
+  animation: shine 8s ease-in-out infinite;
+}
+
+.animate-shine-reverse {
+  animation: shine-reverse 10s ease-in-out infinite;
+  animation-delay: 2s;
+}
