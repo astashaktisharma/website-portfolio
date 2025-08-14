@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const scrollY = window.scrollY;
       const heroHeight = hero.offsetHeight;
 
-      if (scrollY > heroHeight - 100) {
+      if (scrollY > 200) {
         stickyName.classList.replace("opacity-0", "opacity-100");
         topNav.classList.replace("opacity-0", "opacity-100");
         heroName.classList.add("opacity-0");
@@ -94,3 +94,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
