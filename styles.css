@@ -63,6 +63,11 @@ html {
 #topNav li {
   margin: 0;
   background: transparent;
+  margin-right: 1.5rem;
+}
+
+#topNav li:last-child {
+  margin-right: 0;
 }
 
 #topNav a {
