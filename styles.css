@@ -38,6 +38,89 @@ html {
   filter: drop-shadow(0 0 5px var(--primary-color));
 }
 
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* Navigation styles - clean and transparent */
+#topNav {
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+#topNav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#topNav li {
+  margin: 0;
+}
+
+#topNav a {
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#topNav a:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-2px);
+}
+
+#topNav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+#topNav a:hover::after {
+  width: 100%;
+}
+
+/* Sticky name styles - clean and transparent */
+#stickyName {
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Responsive navigation - minimal adjustments only */
+@media screen and (max-width: 768px) {
+  #topNav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  #topNav a {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #topNav ul {
+    gap: 0.25rem;
+  }
+  
+  #topNav a {
+    font-size: 0.8rem;
+  }
+}
 
 
 .section {
