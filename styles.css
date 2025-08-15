@@ -42,24 +42,27 @@ html {
   color: var(--primary-color);
 }
 
-/* Navigation styles - clean and transparent */
+/* Navigation styles - completely clean and transparent */
 #topNav {
-  background: transparent;
-  backdrop-filter: none;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 #topNav ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  background: transparent;
 }
 
 #topNav li {
   margin: 0;
+  background: transparent;
 }
 
 #topNav a {
@@ -68,6 +71,8 @@ html {
   letter-spacing: 0.5px;
   position: relative;
   transition: all 0.3s ease;
+  background: transparent;
+  outline: none;
 }
 
 #topNav a:hover {
@@ -90,14 +95,37 @@ html {
   width: 100%;
 }
 
-/* Sticky name styles - clean and transparent */
+/* Sticky name styles - completely clean and transparent */
 #stickyName {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#stickyName h2,
+#stickyName p {
   background: transparent;
-  backdrop-filter: none;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
+  outline: none;
+}
+
+/* Additional overrides to ensure no visual boxes */
+#topNav *,
+#stickyName * {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Remove any potential focus outlines */
+#topNav a:focus,
+#stickyName:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Responsive navigation - minimal adjustments only */
